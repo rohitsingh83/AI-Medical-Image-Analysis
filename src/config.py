@@ -9,7 +9,13 @@ In industry projects, hard-coded values are scattered bugs waiting to happen.
 One config module = one place to tune the whole system.
 """
 
+import os
 from pathlib import Path
+
+# Disable oneDNN CPU feature probing on Windows to prevent import stalls
+os.environ.setdefault("TF_ENABLE_ONEDNN_OPTS", "0")
+os.environ.setdefault("TF_CPP_MIN_LOG_LEVEL", "2")
+
 
 # ----------------------------------------------------------------------------
 # Paths (all relative to the project root, so the repo works anywhere)

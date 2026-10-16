@@ -5,7 +5,10 @@
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue)](https://python.org/)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-Keras%203-orange)](https://tensorflow.org/)
 [![Flask](https://img.shields.io/badge/Deployment-Flask-green)](https://flask.palletsprojects.com/)
+[![GitHub Pages](https://img.shields.io/badge/Live%20Demo-GitHub%20Pages-brightgreen?logo=github)](https://rohitsingh83.github.io/AI-Medical-Image-Analysis/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
+> 🌐 **Live Interactive Website:** [https://rohitsingh83.github.io/AI-Medical-Image-Analysis/](https://rohitsingh83.github.io/AI-Medical-Image-Analysis/)
 
 ---
 
@@ -238,24 +241,41 @@ curl -F "image=@sample.png" http://127.0.0.1:5000/api/predict
 | ROC curve | `roc_curve.png` |
 | Predictions + Grad-CAM | `prediction_grid.png` |
 
-## Web Application Demo
+## Web Application & Live Interactive Studio
 
-![App preview](images/screenshot_app.svg)
+### 🌐 Live GitHub Pages Showcase
+> **Try the Interactive Studio directly in your browser:** [https://rohitsingh83.github.io/AI-Medical-Image-Analysis/](https://rohitsingh83.github.io/AI-Medical-Image-Analysis/)
 
-| Upload & result flow | Grad-CAM explanation |
-|---|---|
-| ![Prediction grid](images/prediction_grid.png) | ![Grad-CAM example](images/gradcam_example.png) |
+The repository includes a portfolio-grade, interactive web application featuring:
+- **Interactive Diagnostic Studio**: Real-time canvas rendering of chest radiographs with live Grad-CAM heatmaps, adjustable opacity, colormap selections (Jet, Turbo, Inferno, Viridis), and anatomical landmark overlays.
+- **Automated Radiology Report Generator**: Drafts structured hospital findings, pulmonary zone assessments, and physician impression summaries.
+- **Clinical Benchmark Dashboard**: Interactive confusion matrix and ROC-AUC curve visualizations.
 
-1. Doctor uploads a chest X-ray (PNG/JPG)
-2. Preprocessing + CNN inference run server-side
-3. Result page shows **NORMAL / PNEUMONIA**, confidence bar, and the Grad-CAM heatmap
-4. `/api/predict` returns the same result as JSON for integration
+### 📸 Project Screenshots
 
-```bash
-python app.py                                          # start the server
-curl -F "image=@images/gradcam_example.png" http://127.0.0.1:5000/api/predict
-curl http://127.0.0.1:5000/health
-```
+| 1. Live Interactive Studio (Pneumonia Detection & Grad-CAM) |
+|:---:|
+| ![Interactive Diagnostic Studio](screenshots/03_diagnostic_studio_pneumonia_gradcam.png) |
+
+| 2. Website Overview & Clinical Metrics | 3. Automated Radiology Report Generator |
+|:---:|:---:|
+| ![Website Overview](screenshots/01_website_hero_and_metrics.png) | ![Automated Radiology Report](screenshots/04_automated_radiology_report.png) |
+
+| 4. Flask Doctor Web App (Upload Interface) | 5. Flask Diagnosis & Grad-CAM Result Page |
+|:---:|:---:|
+| ![Flask App Upload](screenshots/06_flask_app_upload_interface.png) | ![Flask Result Page](screenshots/07_flask_app_diagnosis_result.png) |
+
+| 6. Diagnostic Studio (Normal Case) | 7. Clinical Confusion Matrix & Benchmarks |
+|:---:|:---:|
+| ![Diagnostic Studio Normal Case](screenshots/02_diagnostic_studio_normal_case.png) | ![Clinical Confusion Matrix](screenshots/05_clinical_confusion_matrix_and_benchmarks.png) |
+
+### 📁 Quick Demo Outputs for Presentations
+
+For evaluations and technical interviews, all verified demonstration outputs are organized in [`demo_outputs/`](demo_outputs/):
+- **`demo_outputs/figures/`**: High-resolution PNGs of training curves, ROC curve, confusion matrix, sample grids, and preprocessing stages.
+- **`demo_outputs/reports/`**: Numerical `metrics.json`, `classification_report.txt`, and `training_log.txt`.
+- **`demo_outputs/gradcam_predictions/`**: Pre-generated Grad-CAM heatmap overlays for rapid inspection.
+- **`demo_outputs/README.md`**: Complete 3-minute project presentation script.
 
 ## Virtual Simulation Explained
 

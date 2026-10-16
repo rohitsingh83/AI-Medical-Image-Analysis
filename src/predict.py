@@ -46,7 +46,7 @@ def make_gradcam(image_batch: np.ndarray, model, class_index: int = 0):
                                 [last_conv.output, model.output])
 
     with tf.GradientTape() as tape:
-        conv_outputs, predictions = grad_model(image_batch, training=False)
+        conv_outputs, predictions = grad_model([image_batch], training=False)
         loss = predictions[:, 0] if class_index == 1 else 1.0 - predictions[:, 0]
 
     grads = tape.gradient(loss, conv_outputs)                 # (1, h, w, c)
@@ -90,7 +90,8 @@ def predict_image(image_path: str | Path,
     raw_resized = cv2.resize(raw, (config.IMG_SIZE, config.IMG_SIZE))
 
     # Prediction ----------------------------------------------------------
-    prob = float(model.predict(batch, verbose=0).ravel()[0])
+    input_data = {model.input_names[0]: batch} if hasattr(model, "input_names") and model.input_names else batch
+    prob = float(model.predict(input_data, verbose=0).ravel()[0])
     class_index = int(prob >= 0.5)
     label = config.CLASS_NAMES[class_index]
     confidence = prob if class_index == 1 else 1.0 - prob
@@ -138,7 +139,8 @@ def predict_sample_grid(n: int = 8, model_path=None, seed: int = config.SEED) ->
     records, batches, heats = [], [], []
     for fpath, true_label in samples:
         batch = load_and_preprocess(fpath)
-        prob = float(model.predict(batch, verbose=0).ravel()[0])
+        input_data = {model.input_names[0]: batch} if hasattr(model, "input_names") and model.input_names else batch
+        prob = float(model.predict(input_data, verbose=0).ravel()[0])
         pred_label = config.CLASS_NAMES[int(prob >= 0.5)]
         heatmap, _ = make_gradcam(batch, model)
         raw = cv2.imread(str(fpath), cv2.IMREAD_GRAYSCALE)

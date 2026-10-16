@@ -1,0 +1,22 @@
+AI-Medical-Image-Analysis - TRAINING LOG
+==================================================
+Model type      : cnn
+Image size      : 128x128
+Batch size      : 32
+Epochs run      : 8
+Training time   : 38.6 s (0.6 min)
+Best val acc    : 1.0000 (100.00%)
+Final train acc : 1.0000
+Final val acc   : 1.0000
+Final val loss  : 0.0001
+
+Per-epoch metrics:
+--------------------------------------------------
+Epoch 01 | loss=0.6940 acc=0.4875 precision=0.4887 recall=0.5425 | val_loss=0.6870 val_acc=0.5000
+Epoch 02 | loss=0.6660 acc=0.5925 precision=0.7256 recall=0.2975 | val_loss=0.5034 val_acc=1.0000
+Epoch 03 | loss=0.3585 acc=0.9100 precision=0.9581 recall=0.8575 | val_loss=0.0888 val_acc=1.0000
+Epoch 04 | loss=0.0142 acc=0.9987 precision=1.0000 recall=0.9975 | val_loss=0.0004 val_acc=1.0000
+Epoch 05 | loss=0.0005 acc=1.0000 precision=1.0000 recall=1.0000 | val_loss=0.0001 val_acc=1.0000
+Epoch 06 | loss=0.0002 acc=1.0000 precision=1.0000 recall=1.0000 | val_loss=0.0001 val_acc=1.0000
+Epoch 07 | loss=0.0002 acc=1.0000 precision=1.0000 recall=1.0000 | val_loss=0.0001 val_acc=1.0000
+Epoch 08 | loss=0.0002 acc=1.0000 precision=1.0000 recall=1.0000 | val_loss=0.0001 val_acc=1.0000
