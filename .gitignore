@@ -1,0 +1,43 @@
+# ============================================================================
+# .gitignore - AI-Powered Medical Image Analysis
+# Keep the repo clean: code + docs + small artifacts in, bulk data out.
+# ============================================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+.env
+
+# --- Notebooks ---
+.ipynb_checkpoints/
+
+# --- Datasets (too large for GitHub - use Kaggle download or the generator) ---
+data/raw/
+data/synthetic/
+data/processed/
+*.zip
+
+# --- Model weights (large binaries - attach via GitHub Releases instead) ---
+models/*.keras
+models/*.h5
+models/*.pb
+
+# --- Temporary uploads (Flask) ---
+uploads/
+
+# --- OS / editor noise ---
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# --- Keep output folders in git but skip bulky raw predictions ---
+outputs/predictions/*.png
+!outputs/predictions/.gitkeep
+
+# NOTE: outputs/figures/ and outputs/reports/ ARE committed on purpose -
+# they are the proof artifacts shown in the README.
